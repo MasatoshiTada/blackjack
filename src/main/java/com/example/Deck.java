@@ -8,22 +8,11 @@ import java.util.List;
 /**
  * ディーラーが持つカードデッキです。
  */
-public class Deck {
-
-    private final List<Card> cardList;
-
-    public Deck() {
-        Card[] cards = Card.values();
-        ArrayList<Card> cardList = new ArrayList<>(Arrays.asList(cards));
-        Collections.shuffle(cardList);
-        this.cardList = cardList;
-    }
+public interface Deck {
 
     /**
      * デッキからカードを払い出します。
      * @return 払い出されたカード
      */
-    public Card payOut() {
-        return cardList.remove(cardList.size() - 1);
-    }
+    Card payOut();
 }

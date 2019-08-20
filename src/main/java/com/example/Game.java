@@ -10,11 +10,11 @@ public class Game {
 
     private Referee referee;
 
-    public Game() {
-        this.player = new Player("プレイヤー");
-        this.dealer = new Dealer("ディーラー");
-        this.deck = new Deck();
-        this.referee = new Referee();
+    public Game(Player player, Dealer dealer, Deck deck, Referee referee) {
+        this.player = player;
+        this.dealer = dealer;
+        this.deck = deck;
+        this.referee = referee;
     }
 
     public void start() {

@@ -4,7 +4,12 @@ package com.example;
  * トランプの番号を表すEnumです。
  */
 public enum Number {
-    ACE(1, "A", 11),
+    ACE(1, "A", 11) {
+        @Override
+        public int getAnotherBlackJackValue() {
+            return 1;
+        }
+    },
     TWO(2, "2", 2),
     THREE(3, "3", 3),
     FOUR(4, "4", 4),
@@ -38,5 +43,9 @@ public enum Number {
 
     public int getBlackJackValue() {
         return blackJackValue;
+    }
+
+    public int getAnotherBlackJackValue() {
+        throw new UnsupportedOperationException("このカードに第2の値はありません");
     }
 }

@@ -3,6 +3,7 @@ package com.example;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 手札のコレクションクラスです。
@@ -34,21 +35,20 @@ public class Hands {
      * @return 合計値
      */
     public int calculateTotal() {
-        int total = 0;
-        int aceCount = 0;
+        int total = cardList.stream()
+                .mapToInt(card -> card.getNumber().getBlackJackValue())
+                .sum();
 
-        for (Card card : cardList) {
-            if (isAce(card)) {
-                aceCount++;
-            }
-            total += card.getNumber().getBlackJackValue();
-        }
+        List<Card> aceList = cardList.stream()
+                .filter(this::isAce)
+                .collect(Collectors.toList());
 
         // エースは11として計算しているので、
         // 最大でエースの枚数だけ10を引ける
-        for (int i = 0; i < aceCount; i++) {
+        for (Card ace : aceList) {
             if (total > MAX_TOTAL_VALUE) {
-                total -= 10;
+                total -= ace.getNumber().getBlackJackValue();
+                total += ace.getNumber().getAnotherBlackJackValue();
             }
         }
 
