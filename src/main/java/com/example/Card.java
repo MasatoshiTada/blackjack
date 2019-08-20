@@ -1,5 +1,9 @@
 package com.example;
 
+/**
+ * トランプ52枚（13枚×4）を表すEnumです。
+ * ブラックジャックでは使わないため、ジョーカーは含んでいません。
+ */
 public enum Card {
     SPADE_A(Suit.SPADE, Number.ACE),
     SPADE_2(Suit.SPADE, Number.TWO),

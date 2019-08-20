@@ -1,5 +1,8 @@
 package com.example;
 
+/**
+ * トランプのマークを表すEnumです。
+ */
 public enum Suit {
 
     SPADE("♠"), HEART("♥"), DIAMOND("♦"), CLUB("♣");

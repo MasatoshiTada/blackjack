@@ -2,9 +2,9 @@ package com.example;
 
 public class Game {
 
-    private Actor player;
+    private Player player;
 
-    private Actor dealer;
+    private Dealer dealer;
 
     private Deck deck;
 
@@ -20,56 +20,50 @@ public class Game {
     public void start() {
         System.out.println("ブラックジャックへようこそ！");
         try {
-            // 1回目のドロー
-            player.drawCard(deck.payOut());
-            dealer.drawCard(deck.payOut());
-            showCards(player);
+            // 1回目のヒット
+            player.hit(deck.payOut());
+            dealer.hit(deck.payOut());
+            // 2回目のヒット
+            player.hit(deck.payOut());
+            dealer.hit(deck.payOut());
+            System.out.println(player);
 
-            boolean playerWillDraw = true;
-            boolean dealerWillDraw = true;
+            boolean playerWillHit = true;
+            boolean dealerWillHit = true;
 
-            while (playerWillDraw == true || dealerWillDraw == true) {
+            while (playerWillHit == true || dealerWillHit == true) {
                 System.out.println("--------------");
-                if (playerWillDraw) {
-                    playerWillDraw = player.willDraw();
-                    if (playerWillDraw) {
-                        player.drawCard(deck.payOut());
-                        showCards(player);
+                if (playerWillHit) {
+                    playerWillHit = player.willHit();
+                    if (playerWillHit) {
+                        player.hit(deck.payOut());
+                        System.out.println(player);
                     }
                 }
 
-                if (dealerWillDraw) {
-                    dealerWillDraw = dealer.willDraw();
-                    if (dealerWillDraw) {
+                if (dealerWillHit) {
+                    dealerWillHit = dealer.willHit();
+                    if (dealerWillHit) {
                         System.out.println("ディーラーがカードを引きました");
-                        dealer.drawCard(deck.payOut());
+                        dealer.hit(deck.payOut());
                     }
                 }
             }
 
             System.out.println("--------------");
-            showCards(player);
-            showCards(dealer);
+            System.out.println(player);
+            System.out.println(dealer);
 
             showWinner(player, dealer);
         } catch (BustException e) {
             System.out.println("--------------");
-            showCards(player);
-            showCards(dealer);
+            System.out.println(player);
+            System.out.println(dealer);
             System.out.println(e.getMessage());
         }
     }
 
-    private void showCards(Actor player) {
-        System.out.print(player.getName() + "の現在のカード : ");
-        for (Card card : player.getCardList()) {
-            System.out.print(card + " ");
-        }
-        System.out.println();
-        System.out.println("合計 : " + player.getTotal());
-    }
-
-    private void showWinner(Actor player, Actor dealer) {
+    private void showWinner(Player player, Dealer dealer) {
         Result result = referee.judge(player, dealer);
         switch (result) {
             case DRAW:

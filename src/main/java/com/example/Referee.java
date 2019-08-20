@@ -2,7 +2,7 @@ package com.example;
 
 public class Referee {
 
-    public Result judge(Actor player, Actor dealer) {
+    public Result judge(Player player, Dealer dealer) {
         int playerDiff = calculateDiff(player.getTotal());
         int dealerDiff = calculateDiff(dealer.getTotal());
         if (playerDiff == dealerDiff) {
@@ -15,6 +15,6 @@ public class Referee {
     }
 
     private int calculateDiff(int total) {
-        return Constants.MAX_TOTAL_VALUE - total;
+        return Hands.MAX_TOTAL_VALUE - total;
     }
 }

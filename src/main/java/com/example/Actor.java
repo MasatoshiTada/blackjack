@@ -2,15 +2,39 @@ package com.example;
 
 import java.util.List;
 
+/**
+ *
+ */
 public interface Actor {
 
-    void drawCard(Card card) throws BustException;
+    /**
+     * カードを1枚引きます。
+     * @param card 引いたカード
+     * @throws BustException 合計が21を超えた場合
+     */
+    void hit(Card card) throws BustException;
 
+    /**
+     * プレイヤーの名前を返します。
+     * @return プレイヤーの名前
+     */
     String getName();
 
-    List<Card> getCardList();
+    /**
+     * 保持しているカードのリストを返します。
+     * @return カードのリスト
+     */
+    Hands getHands();
 
+    /**
+     * ブラックジャックにおけるカードの合計値を返します。
+     * @return カードの合計値
+     */
     int getTotal();
 
-    boolean willDraw();
+    /**
+     * カードを更に1枚引く場合はtrueを返します。
+     * @return カードを更に1枚引く場合はtrue、そうでない場合はfalse
+     */
+    boolean willHit();
 }

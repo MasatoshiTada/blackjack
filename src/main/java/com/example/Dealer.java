@@ -2,6 +2,9 @@ package com.example;
 
 public class Dealer extends AbstractActor {
 
+    /**
+     * ディーラーは合計値17を下回ってはならない
+     */
     private static final int WILL_DRAW_MORE_CARD_THRESHOLD = 17;
 
     public Dealer(String name) {
@@ -9,7 +12,7 @@ public class Dealer extends AbstractActor {
     }
 
     @Override
-    public boolean willDraw() {
+    public boolean willHit() {
         return getTotal() <= WILL_DRAW_MORE_CARD_THRESHOLD;
     }
 }

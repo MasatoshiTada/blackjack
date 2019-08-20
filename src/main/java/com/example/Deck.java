@@ -5,9 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * ディーラーが持つカードデッキです。
+ */
 public class Deck {
 
-    private List<Card> cardList;
+    private final List<Card> cardList;
 
     public Deck() {
         Card[] cards = Card.values();
@@ -16,6 +19,10 @@ public class Deck {
         this.cardList = cardList;
     }
 
+    /**
+     * デッキからカードを払い出します。
+     * @return 払い出されたカード
+     */
     public Card payOut() {
         return cardList.remove(cardList.size() - 1);
     }

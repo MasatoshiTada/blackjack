@@ -9,11 +9,11 @@ public class Player extends AbstractActor {
     }
 
     @Override
-    public boolean willDraw() {
+    public boolean willHit() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("カードを引きますか？(y/n) =>");
         String answer = scanner.next();
-        boolean willDraw = answer.equalsIgnoreCase("y");
-        return willDraw;
+        boolean willHit = answer.equalsIgnoreCase("y");
+        return willHit;
     }
 }

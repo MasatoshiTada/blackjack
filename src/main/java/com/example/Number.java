@@ -1,5 +1,8 @@
 package com.example;
 
+/**
+ * トランプの番号を表すEnumです。
+ */
 public enum Number {
     ACE(1, "A", 11),
     TWO(2, "2", 2),
