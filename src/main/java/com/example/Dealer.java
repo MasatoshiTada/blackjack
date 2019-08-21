@@ -13,6 +13,6 @@ public class Dealer extends AbstractActor {
 
     @Override
     public boolean willHit() {
-        return getTotal() <= WILL_DRAW_MORE_CARD_THRESHOLD;
+        return calculateTotal() <= WILL_DRAW_MORE_CARD_THRESHOLD;
     }
 }

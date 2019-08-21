@@ -30,12 +30,7 @@ public abstract class AbstractActor implements Actor {
     }
 
     @Override
-    public Hands getHands() {
-        return hands;
-    }
-
-    @Override
-    public int getTotal() {
+    public int calculateTotal() {
         return hands.calculateTotal();
     }
 
@@ -44,13 +39,10 @@ public abstract class AbstractActor implements Actor {
         StringBuilder builder = new StringBuilder();
         builder.append(name);
         builder.append("の現在のカード : ");
-        for (Card card : hands.getCardList()) {
-            builder.append(card);
-            builder.append(" ");
-        }
+        builder.append(hands.getCardListString());
         builder.append("\n");
         builder.append("合計 : ");
-        builder.append(getTotal());
+        builder.append(calculateTotal());
         return builder.toString();
     }
 }

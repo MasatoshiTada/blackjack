@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.List;
-
 /**
  *
  */
@@ -21,16 +19,10 @@ public interface Actor {
     String getName();
 
     /**
-     * 保持しているカードのリストを返します。
-     * @return カードのリスト
-     */
-    Hands getHands();
-
-    /**
      * ブラックジャックにおけるカードの合計値を返します。
      * @return カードの合計値
      */
-    int getTotal();
+    int calculateTotal();
 
     /**
      * カードを更に1枚引く場合はtrueを返します。

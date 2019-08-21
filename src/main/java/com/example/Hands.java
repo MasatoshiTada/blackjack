@@ -26,8 +26,13 @@ public class Hands {
         cardList.add(card);
     }
 
-    public List<Card> getCardList() {
-        return Collections.unmodifiableList(cardList);
+    public String getCardListString() {
+        StringBuilder builder = new StringBuilder();
+        for (Card card : cardList) {
+            builder.append(card);
+            builder.append(" ");
+        }
+        return builder.toString();
     }
 
     /**

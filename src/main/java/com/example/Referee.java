@@ -3,8 +3,8 @@ package com.example;
 public class Referee {
 
     public Result judge(Player player, Dealer dealer) {
-        int playerDiff = calculateDiff(player.getTotal());
-        int dealerDiff = calculateDiff(dealer.getTotal());
+        int playerDiff = calculateDiff(player.calculateTotal());
+        int dealerDiff = calculateDiff(dealer.calculateTotal());
         if (playerDiff == dealerDiff) {
             return Result.DRAW;
         } else if (playerDiff < dealerDiff) {
