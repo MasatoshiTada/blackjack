@@ -46,6 +46,6 @@ public enum Number {
     }
 
     public int getAnotherBlackJackValue() {
-        throw new UnsupportedOperationException("このカードに第2の値はありません");
+        return blackJackValue;
     }
 }
