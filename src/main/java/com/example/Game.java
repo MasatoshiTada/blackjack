@@ -19,48 +19,45 @@ public class Game {
 
     public void start() {
         System.out.println("ブラックジャックへようこそ！");
-        try {
-            // 1回目のヒット
-            player.hit(deck.payOut());
-            dealer.hit(deck.payOut());
-            // 2回目のヒット
-            player.hit(deck.payOut());
-            dealer.hit(deck.payOut());
-            System.out.println(player);
+        // 1回目のヒット
+        player.hit(deck.payOut());
+        dealer.hit(deck.payOut());
+        // 2回目のヒット
+        player.hit(deck.payOut());
+        dealer.hit(deck.payOut());
+        System.out.println(player);
 
-            boolean playerWillHit = true;
-            boolean dealerWillHit = true;
-
-            while (playerWillHit == true || dealerWillHit == true) {
-                System.out.println("--------------");
-                if (playerWillHit) {
-                    playerWillHit = player.willHit();
-                    if (playerWillHit) {
-                        player.hit(deck.payOut());
-                        System.out.println(player);
-                    }
-                }
-
-                if (dealerWillHit) {
-                    dealerWillHit = dealer.willHit();
-                    if (dealerWillHit) {
-                        System.out.println("ディーラーがカードを引きました");
-                        dealer.hit(deck.payOut());
-                    }
-                }
+        while (true) {
+            System.out.println("--------------");
+            // プレイヤーがカードを引くか意思決定する
+            boolean playerWillHit = player.willHit();
+            if (playerWillHit) {
+                // プレイヤーがカードを引く
+                player.hit(deck.payOut());
+                System.out.println(player);
             }
 
-            System.out.println("--------------");
-            System.out.println(player);
-            System.out.println(dealer);
+            // ディーラーがカードを引くか意思決定する
+            boolean dealerWillHit = dealer.willHit();
+            if (dealerWillHit) {
+                // ディーラーがカードを引く
+                dealer.hit(deck.payOut());
+                System.out.println("ディーラーがカードを引きました");
+            }
 
-            showWinner(player, dealer);
-        } catch (BustException e) {
-            System.out.println("--------------");
-            System.out.println(player);
-            System.out.println(dealer);
-            System.out.println(e.getMessage());
+            // プレイヤーとディーラーの両方がこれ以上カードをヒットしない、
+            // またはどちらかがバーストしたら繰り返しを終了する
+            if (playerWillHit == false && dealerWillHit == false
+                    || player.isBust() || dealer.isBust()) {
+                break;
+            }
         }
+
+        System.out.println("--------------");
+        System.out.println(player);
+        System.out.println(dealer);
+
+        showWinner(player, dealer);
     }
 
     private void showWinner(Player player, Dealer dealer) {
