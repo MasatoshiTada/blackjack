@@ -1,6 +1,5 @@
 package com.example;
 
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -25,6 +24,6 @@ public class Deck {
      * @return 払い出されたカード
      */
     public Card payOut() {
-        return cardList.remove(cardList.size() - 1);
+        return cardList.remove(0);
     }
 }

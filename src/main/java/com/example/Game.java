@@ -57,10 +57,10 @@ public class Game {
         System.out.println(player);
         System.out.println(dealer);
 
-        showWinner(player, dealer);
+        showResult(player, dealer);
     }
 
-    private void showWinner(Player player, Dealer dealer) {
+    private void showResult(Player player, Dealer dealer) {
         Result result = referee.judge(player, dealer);
         switch (result) {
             case DRAW:

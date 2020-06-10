@@ -1,6 +1,6 @@
 package com.example;
 
-public enum  Result {
+public enum Result {
 
     PLAYER_WIN, DEALER_WIN, DRAW;
 }
