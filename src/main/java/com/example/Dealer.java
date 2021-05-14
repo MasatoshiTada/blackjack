@@ -19,7 +19,7 @@ public class Dealer {
     private static final int WILL_HIT_IF_TOTAL_IS_LESS_THAN = 17;
 
     public boolean willHit() {
-        return calculateTotal() < WILL_HIT_IF_TOTAL_IS_LESS_THAN;
+        return total() < WILL_HIT_IF_TOTAL_IS_LESS_THAN;
     }
 
     public void hit(Card card) {
@@ -27,7 +27,7 @@ public class Dealer {
     }
 
     public boolean isBust() {
-        int score = hands.calculateTotal();
+        int score = hands.total();
         return score > Hands.MAX_TOTAL_VALUE;
     }
 
@@ -35,14 +35,14 @@ public class Dealer {
         return name;
     }
 
-    public int calculateTotal() {
-        return hands.calculateTotal();
+    public int total() {
+        return hands.total();
     }
 
     @Override
     public String toString() {
         String text = name + "の現在のカード : " + hands.getCardListString() + "\n"
-                + "合計 : " + calculateTotal();
+                + "合計 : " + total();
         if (isBust()) {
             text += "(バースト)";
         }

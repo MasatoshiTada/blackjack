@@ -38,7 +38,7 @@ public class Hands {
      * 手札の合計値を計算して返します。
      * @return 合計値
      */
-    public int calculateTotal() {
+    public int total() {
         int total = cardList.stream()
                 .mapToInt(card -> card.getNumber().getBlackJackValue())
                 .sum();

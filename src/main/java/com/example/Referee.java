@@ -3,8 +3,8 @@ package com.example;
 public class Referee {
 
     public Result judge(Player player, Dealer dealer) {
-        int playerTotal = player.calculateTotal();
-        int dealerTotal = dealer.calculateTotal();
+        int playerTotal = player.total();
+        int dealerTotal = dealer.total();
         boolean playerIsBust = player.isBust();
         boolean dealerIsBust = dealer.isBust();
         // バーストかどうかを判断して勝敗を返す
