@@ -16,10 +16,10 @@ public class Dealer {
     /**
      * ディーラーは合計値17を下回ってはならない
      */
-    private static final int WILL_HIT_THRESHOLD = 17;
+    private static final int WILL_HIT_IF_TOTAL_IS_LESS_THAN = 17;
 
     public boolean willHit() {
-        return calculateTotal() < WILL_HIT_THRESHOLD;
+        return calculateTotal() < WILL_HIT_IF_TOTAL_IS_LESS_THAN;
     }
 
     public void hit(Card card) {
