@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  */
 public class Hands {
 
-    public static final int MAX_TOTAL_VALUE = 21;
+    public static final int BUST_IF_TOTAL_IS_OVER = 21;
 
     private final List<Card> cardList;
 
@@ -25,7 +25,8 @@ public class Hands {
         cardList.add(card);
     }
 
-    public String getCardListString() {
+    @Override
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         for (Card card : cardList) {
             builder.append(card);
@@ -50,7 +51,7 @@ public class Hands {
         // エースは11として計算しているので、
         // 最大でエースの枚数だけ10を引ける
         for (Card ace : aceList) {
-            if (total > MAX_TOTAL_VALUE) {
+            if (total > BUST_IF_TOTAL_IS_OVER) {
                 total -= ace.getNumber().getBlackJackValue();
                 total += ace.getNumber().getAnotherBlackJackValue();
             }

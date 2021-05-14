@@ -28,7 +28,7 @@ public class Dealer {
 
     public boolean isBust() {
         int score = hands.total();
-        return score > Hands.MAX_TOTAL_VALUE;
+        return score > Hands.BUST_IF_TOTAL_IS_OVER;
     }
 
     public String getName() {
@@ -41,7 +41,7 @@ public class Dealer {
 
     @Override
     public String toString() {
-        String text = name + "の現在のカード : " + hands.getCardListString() + "\n"
+        String text = name + "の現在のカード : " + hands.toString() + "\n"
                 + "合計 : " + total();
         if (isBust()) {
             text += "(バースト)";

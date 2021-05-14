@@ -28,6 +28,6 @@ public class Referee {
     }
 
     private int calculateDiff(int total) {
-        return Hands.MAX_TOTAL_VALUE - total;
+        return Hands.BUST_IF_TOTAL_IS_OVER - total;
     }
 }
