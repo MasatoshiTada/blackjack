@@ -3,10 +3,10 @@ package com.example;
 public class Dealer {
 
     // 名前
-    private String name;
+    private final String name;
 
     // 手札
-    private Hands hands;
+    private final Hands hands;
 
     public Dealer(String name) {
         this.name = name;

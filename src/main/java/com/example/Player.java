@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Player {
 
     // 名前
-    private String name;
+    private final String name;
 
     // trueの場合、これ以上カードをヒットしない
     private boolean noMoreHit;
 
     // 手札
-    private Hands hands;
+    private final Hands hands;
 
     public Player(String name) {
         this.name = name;

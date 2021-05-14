@@ -7,7 +7,7 @@ public enum Suit {
 
     SPADE("♠"), HEART("♥"), DIAMOND("♦"), CLUB("♣");
 
-    private String value;
+    private final String value;
 
     Suit(String value) {
         this.value = value;

@@ -58,8 +58,8 @@ public enum Card {
     CLUB_Q(Suit.CLUB, Number.QUEEN),
     CLUB_K(Suit.CLUB, Number.KING);
 
-    private Suit suit;
-    private Number number;
+    private final Suit suit;
+    private final Number number;
 
     Card(Suit suit, Number number) {
         this.suit = suit;

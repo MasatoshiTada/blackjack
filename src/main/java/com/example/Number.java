@@ -23,9 +23,9 @@ public enum Number {
     QUEEN(12, "Q", 10),
     KING(13, "K", 10);
 
-    private int value;
-    private String initial;
-    private int blackJackValue;
+    private final int value;
+    private final String initial;
+    private final int blackJackValue;
 
     Number(int value, String initial, int blackJackValue) {
         this.value = value;

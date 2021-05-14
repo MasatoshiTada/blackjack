@@ -2,13 +2,13 @@ package com.example;
 
 public class Game {
 
-    private Player player;
+    private final Player player;
 
-    private Dealer dealer;
+    private final Dealer dealer;
 
-    private Deck deck;
+    private final Deck deck;
 
-    private Referee referee;
+    private final Referee referee;
 
     public Game(Player player, Dealer dealer, Deck deck, Referee referee) {
         this.player = player;
