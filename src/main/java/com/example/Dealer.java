@@ -41,7 +41,7 @@ public class Dealer {
 
     @Override
     public String toString() {
-        String text = name + "の現在のカード : " + hands.toString() + "\n"
+        String text = name + "の現在のカード : " + hands.toString() + System.lineSeparator()
                 + "合計 : " + total();
         if (isBust()) {
             text += "(バースト)";
