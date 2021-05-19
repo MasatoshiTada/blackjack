@@ -15,7 +15,7 @@ public class Referee {
         } else if (dealerIsBust) {
             return Result.PLAYER_WIN;
         }
-        // 21点との差を計算して勝敗を返す
+        // 得点を比較して勝敗を返す
         if (playerTotal == dealerTotal) {
             return Result.DRAW;
         } else if (playerTotal > dealerTotal) {
