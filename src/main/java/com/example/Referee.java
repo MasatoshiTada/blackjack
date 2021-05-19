@@ -8,9 +8,7 @@ public class Referee {
         boolean playerIsBust = player.isBust();
         boolean dealerIsBust = dealer.isBust();
         // バーストかどうかを判断して勝敗を返す
-        if (playerIsBust && dealerIsBust) {
-            return Result.DEALER_WIN;
-        } else if (playerIsBust) {
+        if (playerIsBust) {
             return Result.DEALER_WIN;
         } else if (dealerIsBust) {
             return Result.PLAYER_WIN;
